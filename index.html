@@ -13,60 +13,148 @@
 
     <style>
         body { 
-            padding: 15px; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #FAFAFA; 
+            padding: 20px; 
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
+            background-color: #F8FAFC; 
+            color: #334155;
         }
         .main-container { 
             background: white; 
-            padding: 20px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03); 
+            padding: 30px; 
+            border-radius: 16px; 
+            box-shadow: 0 4px 30px rgba(0,0,0,0.02); 
         }
         
-        /* Kotak Pencarian dengan warna soft */
-        .filter-box { 
-            background: #F4F7F6; 
-            padding: 15px; 
-            border-radius: 10px; 
-            margin-bottom: 20px; 
-            border-left: 5px solid #A0C4FF; 
+        /* Konten Judul & Sub-deskripsi (Rata Tengah) */
+        .page-title {
+            color: #1E293B !important;
+            font-weight: 700;
         }
-        
-        /* Customisasi Select2 agar cocok dengan Bootstrap */
-        .select2-container--default .select2-selection--multiple { 
-            border-color: #E2E8F0; 
-            border-radius: 8px; 
-            min-height: 38px; 
-            padding: 2px 5px; 
-        }
-        .select2-container--default.select2-container--focus .select2-selection--multiple { 
-            border-color: #A0C4FF; 
-            box-shadow: 0 0 0 0.25rem rgba(160, 196, 255, 0.25); 
-        }
-        .select2-container--default .select2-selection--multiple .select2-selection__choice { 
-            background-color: #D2E3FC; 
-            border: 1px solid #A4C2F4; 
-            border-radius: 15px; 
-            color: #174EA6; 
-            padding: 2px 10px; 
-        }
-        
-        /* Gaya untuk form-select standar */
-        .form-select { 
-            border-color: #E2E8F0; 
-            border-radius: 8px; 
-            min-height: 38px; 
-        }
-        .form-select:focus { 
-            border-color: #A0C4FF; 
-            box-shadow: 0 0 0 0.25rem rgba(160, 196, 255, 0.25); 
+        .page-subtitle {
+            color: #475569;
+            font-size: 0.95em;
+            line-height: 1.6;
+            max-width: 800px;
         }
 
-        /* Gaya untuk fitur Beranak */
-        details { 
-            transition: all 0.3s ease; 
+        /* --- TEMA HIJAU PEGADAIAN --- */
+        /* Hijau Pegadaian Solid: #006633 | Hijau Pudar: #EAF2ED */
+
+        /* Desain Blok Panduan */
+        .guide-card {
+            background-color: #EAF2ED; /* Latar hijau pudar */
+            border: 1px solid #C4DACB;
+            border-radius: 12px;
+            padding: 24px;
         }
+        .guide-title {
+            color: #004D26; /* Teks hijau gelap */
+            font-size: 1.05rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .step-box {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            height: 100%;
+            border: 1px solid #C4DACB;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .step-num {
+            background-color: #006633; /* Hijau solid khas Pegadaian */
+            color: white;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .step-text {
+            color: #334155;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        /* Highlight Catatan Khusus (Aksen Emas Pegadaian) */
+        .note-highlight {
+            background-color: #FFF9E6; /* Kuning emas pudar yang elegan */
+            border-left: 4px solid #F2A900; /* Warna Emas Pegadaian */
+            padding: 14px 18px;
+            border-radius: 8px;
+            color: #5C460C;
+            margin-top: 20px;
+            font-size: 0.85em;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            box-shadow: 0 2px 5px rgba(242, 169, 0, 0.05);
+        }
+
+        /* Kotak Pencarian / Filter (Senada dengan Panduan) */
+        .filter-box { 
+            background-color: #EAF2ED; /* Latar hijau pudar sama dengan panduan */
+            padding: 20px; 
+            border-radius: 12px; 
+            margin-bottom: 25px; 
+            border: 1px solid #C4DACB;
+            border-left: 5px solid #006633; /* Garis tepi kiri Hijau Pegadaian */
+        }
+        .filter-label {
+            color: #004D26 !important;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+        
+        /* Merapikan susunan layout Select2 Bootstrap agar presisi & sesuai tema */
+        .select2-container {
+            display: block;
+        }
+        .select2-container--default .select2-selection--multiple { 
+            border-color: #CBD5E1 !important; 
+            border-radius: 8px !important; 
+            min-height: 38px !important; 
+            padding: 2px 5px !important; 
+            background-color: #FFFFFF !important;
+        }
+        .select2-container--default.select2-container--focus .select2-selection--multiple { 
+            border-color: #006633 !important; 
+            box-shadow: 0 0 0 0.25rem rgba(0, 102, 51, 0.15) !important; 
+        }
+        .select2-container--default .select2-selection--multiple .select2-selection__choice { 
+            background-color: #EAF2ED !important; 
+            border: 1px solid #C4DACB !important; 
+            border-radius: 6px !important; 
+            color: #004D26 !important; 
+            padding: 2px 8px !important; 
+            font-weight: 500;
+            margin-top: 4px !important;
+        }
+        .select2-container--default .select2-search--inline .select2-search__field {
+            margin-top: 6px !important;
+        }
+        
+        .form-select { 
+            border-color: #CBD5E1; 
+            border-radius: 8px; 
+            min-height: 38px; 
+            color: #334155;
+        }
+        .form-select:focus { 
+            border-color: #006633; 
+            box-shadow: 0 0 0 0.25rem rgba(0, 102, 51, 0.15); 
+        }
+        .text-pegadaian {
+            color: #006633 !important;
+        }
+
+        /* Fitur Beranak (Collapse/Details) */
         summary { 
             cursor: pointer; 
             list-style: none; 
@@ -75,14 +163,12 @@
         summary::-webkit-details-marker { 
             display: none; 
         }
-        
         .group-summary::after, .item-summary::after { 
             content: ' ▼'; 
             float: right; 
-            font-size: 0.9em; 
+            font-size: 0.8em; 
             transition: transform 0.3s; 
-            color: inherit; 
-            opacity: 0.7; 
+            opacity: 0.8; 
         }
         details[open] > .group-summary::after, details[open] > .item-summary::after { 
             transform: rotate(180deg); 
@@ -90,13 +176,13 @@
 
         /* Desain Kelompok (Domain) */
         .group-summary { 
-            color: #495057; 
+            color: #1E293B; 
             padding: 14px 18px; 
             border-radius: 10px; 
             font-weight: 600; 
-            font-size: 1.05em; 
+            font-size: 1rem; 
             margin-bottom: 12px; 
-            border: 1px solid rgba(0,0,0,0.05); 
+            border: 1px solid rgba(0,0,0,0.03); 
         }
         .group-content { 
             padding-left: 15px; 
@@ -109,74 +195,120 @@
         /* Desain Item Juklak */
         .juklak-item { 
             background: white; 
-            border: 1px solid #F1F3F5; 
+            border: 1px solid #E2E8F0; 
             border-radius: 10px; 
             margin-bottom: 10px; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.01); 
         }
         .item-summary { 
-            padding: 12px 18px; 
+            padding: 14px 18px; 
             font-weight: 500; 
-            color: #495057; 
-            background-color: #F8F9FA; 
+            color: #334155; 
+            background-color: #F8FAFC; 
             border-radius: 10px; 
             font-size: 0.95em; 
         }
         .item-summary:hover { 
-            background-color: #F1F3F5; 
+            background-color: #F1F5F9; 
         }
         .item-body { 
-            padding: 18px; 
-            border-top: 1px solid #F1F3F5; 
+            padding: 20px; 
+            border-top: 1px solid #E2E8F0; 
             background-color: #fff; 
             border-bottom-left-radius: 10px; 
             border-bottom-right-radius: 10px; 
             font-size: 0.9em; 
         }
         
-        /* Tombol dan Badge */
+        /* Tombol & Badge di Tabel */
         .badge-form { 
             font-size: 0.85em; 
-            padding: 8px 15px; 
-            border-radius: 20px; 
+            padding: 8px 16px; 
+            border-radius: 8px; 
             font-weight: 500; 
         }
         .btn-soft-success { 
-            background-color: #B6D7A8; 
-            color: #2C5E1A; 
-            border: none; 
+            background-color: #EAF2ED; 
+            color: #006633; 
+            border: 1px solid #C4DACB; 
         }
         .btn-soft-success:hover { 
-            background-color: #93C47D; 
-            color: #1E4012; 
+            background-color: #C4DACB; 
+            color: #004D26; 
         }
         .badge-soft-secondary { 
-            background-color: #E9ECEF; 
-            color: #6C757D; 
+            background-color: #F1F5F9; 
+            color: #475569; 
+            border: 1px solid #E2E8F0;
         }
 
-        /* --- PALET WARNA PASTEL --- */
-        .domain-1 > summary { background-color: #D2E3FC; } .domain-1 > .group-content { border-left-color: #A4C2F4; }
-        .domain-2 > summary { background-color: #CEEAD6; } .domain-2 > .group-content { border-left-color: #93C47D; }
-        .domain-3 > summary { background-color: #EADDFF; } .domain-3 > .group-content { border-left-color: #B4A7D6; }
-        .domain-4 > summary { background-color: #FFE5D9; } .domain-4 > .group-content { border-left-color: #F6B26B; }
-        .domain-5 > summary { background-color: #FAD2CF; } .domain-5 > .group-content { border-left-color: #EA9999; }
-        .domain-6 > summary { background-color: #D0E0E3; } .domain-6 > .group-content { border-left-color: #76A5AF; }
-        .domain-7 > summary { background-color: #FFF2CC; } .domain-7 > .group-content { border-left-color: #FFD966; }
-        .domain-8 > summary { background-color: #F4D9E8; } .domain-8 > .group-content { border-left-color: #D5A6BD; }
-        .domain-9 > summary { background-color: #E2E8F0; } .domain-9 > .group-content { border-left-color: #CBD5E1; }
-        .domain-10 > summary { background-color: #FFDAB9; } .domain-10 > .group-content { border-left-color: #FFA07A; }
-        .domain-11 > summary { background-color: #E0E7FF; } .domain-11 > .group-content { border-left-color: #A5B4FC; }
+        /* Palet Warna Pastel Elemen Dokumen */
+        .domain-1 > summary { background-color: #DBEAFE; } .domain-1 > .group-content { border-left-color: #3B82F6; }
+        .domain-2 > summary { background-color: #D1FAE5; } .domain-2 > .group-content { border-left-color: #10B981; }
+        .domain-3 > summary { background-color: #F3E8FF; } .domain-3 > .group-content { border-left-color: #A855F7; }
+        .domain-4 > summary { background-color: #FFEDD5; } .domain-4 > .group-content { border-left-color: #F97316; }
+        .domain-5 > summary { background-color: #FEE2E2; } .domain-5 > .group-content { border-left-color: #EF4444; }
+        .domain-6 > summary { background-color: #E0F2FE; } .domain-6 > .group-content { border-left-color: #0EA5E9; }
+        .domain-7 > summary { background-color: #FEF9C3; } .domain-7 > .group-content { border-left-color: #EAB308; }
+        .domain-8 > summary { background-color: #FCE7F3; } .domain-8 > .group-content { border-left-color: #EC4899; }
+        .domain-9 > summary { background-color: #E2E8F0; } .domain-9 > .group-content { border-left-color: #64748B; }
+        .domain-10 > summary { background-color: #FFEDD5; } .domain-10 > .group-content { border-left-color: #D97706; }
+        .domain-11 > summary { background-color: #EEF2F6; } .domain-11 > .group-content { border-left-color: #94A3B8; }
     </style>
 </head>
 <body>
 
 <div class="container-fluid main-container">
-    <h4 class="mb-4 text-secondary fw-bold" style="color: #495057 !important;">📚 Daftar Dokumen Kebijakan & Form Evaluasi TI</h4>
     
-    <div class="row filter-box">
-        <div class="col-md-4 mb-3">
-            <label class="form-label fw-bold" style="color: #6C757D;">🔍 Divisi Anda:</label>
+    <div class="text-center mb-4">
+        <h2 class="fs-4 page-title mb-2">Dashboard Feedback Kebijakan TI </h2>
+        <p class="page-subtitle mx-auto">
+            Media penyampaian umpan balik (feedback) atas kebijakan teknologi informasi. Partisipasi Anda dalam mengisi form ini sangat penting demi perbaikan berkelanjutan, sesuai dengan fungsi yang diatur dalam RASCI Matrix.
+        </p>
+    </div>
+
+    <div class="guide-card mb-4">
+        <div class="guide-title mb-3">
+            <span>📗</span> Panduan Singkat Pengisian Form Feedback Kebijakan TI
+        </div>
+        
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="step-box">
+                    <div class="step-num">1</div>
+                    <div class="step-text">
+                        <strong>Pilih Unit Kerja:</strong> Gunakan fitur filter pencarian di bawah untuk memilih <b>Divisi</b>, <b>Departemen</b>, dan set status ke <span class="text-pegadaian fw-bold">✅ Sudah Tersedia</span>.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="step-box">
+                    <div class="step-num">2</div>
+                    <div class="step-text">
+                        <strong>Pilih & Buka Form:</strong> Cari dokumen juklak terkait, lalu klik tombol <span class="text-pegadaian fw-bold">📝 Isi Form Sekarang</span> untuk langsung membuka tautan evaluasi Google Form.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="step-box">
+                    <div class="step-num">3</div>
+                    <div class="step-text">
+                        <strong>Validasi RASCI & Kirim:</strong> Pastikan peran Anda sesuai dengan <b>RASCI Matrix dari HC</b>, gunakan akun email korporat, isi identitas diri secara lengkap, lalu klik kirim.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="note-highlight">
+            <span style="font-size: 1.2em;">💡</span>
+            <div>
+                <strong>Catatan:</strong> Jika status dokumen tertulis ⏳ <em>Belum Tersedia</em>, form sedang dalam antrean rilis. Hubungi tim <b>Tata Kelola TI</b>.
+            </div>
+        </div>
+    </div>
+    
+    <div class="row filter-box mx-0">
+        <div class="col-md-4 mb-3 mb-md-0">
+            <label class="form-label fw-bold filter-label">🔍 Divisi Anda:</label>
             <select id="searchDivisi" class="form-control" multiple="multiple" data-placeholder="Pilih Divisi...">
                 <option value="Divisi Strategi, Arsitektur dan Perencanaan TI">Divisi Strategi, Arsitektur dan Perencanaan TI</option>
                 <option value="Divisi Pengembangan dan Aplikasi TI">Divisi Pengembangan dan Aplikasi TI</option>
@@ -186,8 +318,8 @@
                 <option value="Divisi Digital">Divisi Digital</option>
             </select>
         </div>
-        <div class="col-md-4 mb-3">
-            <label class="form-label fw-bold" style="color: #6C757D;">🔍 Departemen Anda:</label>
+        <div class="col-md-4 mb-3 mb-md-0">
+            <label class="form-label fw-bold filter-label">🔍 Departemen Anda:</label>
             <select id="searchDept" class="form-control" multiple="multiple" data-placeholder="Pilih Departemen...">
                 <option value="All Departemen">All Departemen</option>
                 <option value="Departemen Perencanaan Arsitektur TI">Departemen Perencanaan Arsitektur TI</option>
@@ -214,8 +346,8 @@
                 <option value="Departemen Tata Kelola TI">Departemen Tata Kelola TI</option>
             </select>
         </div>
-        <div class="col-md-4 mb-3">
-            <label class="form-label fw-bold" style="color: #6C757D;">📋 Status Google Form:</label>
+        <div class="col-md-4">
+            <label class="form-label fw-bold filter-label">📋 Status Google Form:</label>
             <select id="searchFormStatus" class="form-select">
                 <option value="">Tampilkan Semua</option>
                 <option value="tersedia">✅ Sudah Tersedia</option>
@@ -761,6 +893,8 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
 $(document).ready(function() {
     $('#searchDivisi, #searchDept').select2({
@@ -768,7 +902,6 @@ $(document).ready(function() {
         allowClear: true
     });
 
-    // Panggil filterData jika dropdown Divisi, Departemen, atau Status Form diubah
     $('#searchDivisi, #searchDept, #searchFormStatus').on('change', function() {
         filterData();
     });
@@ -777,7 +910,7 @@ $(document).ready(function() {
 function filterData() {
     let selectedDivisi = $('#searchDivisi').val() || [];
     let selectedDept = $('#searchDept').val() || [];
-    let selectedFormStatus = $('#searchFormStatus').val(); // 'tersedia', 'belum', atau ''
+    let selectedFormStatus = $('#searchFormStatus').val(); 
     
     let isSearching = (selectedDivisi.length > 0 || selectedDept.length > 0 || selectedFormStatus !== "");
     let groups = document.getElementsByClassName("juklak-group");
@@ -790,16 +923,12 @@ function filterData() {
             let textDivisi = items[i].querySelector(".divisi-text").textContent.toLowerCase();
             let textDept = items[i].querySelector(".dept-text").textContent.toLowerCase();
 
-            // Cek Divisi
             let matchDivisi = (selectedDivisi.length === 0) || selectedDivisi.some(d => textDivisi.includes(d.toLowerCase()));
             
-            // Cek Departemen
             let matchDept = (selectedDept.length === 0) || 
                             textDept.includes("all departemen") || 
                             selectedDept.some(d => textDept.includes(d.toLowerCase()));
 
-            // Cek Status Form
-            // Jika ada elemen dengan class btn-soft-success, berarti form tersedia
             let hasForm = items[i].querySelector('.btn-soft-success') !== null;
             let matchForm = true;
             if (selectedFormStatus === 'tersedia') {
@@ -808,7 +937,6 @@ function filterData() {
                 matchForm = !hasForm;
             }
 
-            // Gabungkan semua kondisi filter
             if (matchDivisi && matchDept && matchForm) {
                 items[i].style.display = "block";
                 groupHasVisibleItem = true;
