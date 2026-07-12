@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Juklak TI Beranak - Multi Select & Status Filter</title>
+    <title>Portal Juklak TI Beranak - Dynamic JSON Version</title>
     
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
+    <!-- Select2 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
@@ -24,8 +26,6 @@
             border-radius: 16px; 
             box-shadow: 0 4px 30px rgba(0,0,0,0.02); 
         }
-        
-        /* Konten Judul & Sub-deskripsi (Rata Tengah) */
         .page-title {
             color: #1E293B !important;
             font-weight: 700;
@@ -38,17 +38,14 @@
         }
 
         /* --- TEMA HIJAU PEGADAIAN --- */
-        /* Hijau Pegadaian Solid: #006633 | Hijau Pudar: #EAF2ED */
-
-        /* Desain Blok Panduan */
         .guide-card {
-            background-color: #EAF2ED; /* Latar hijau pudar */
+            background-color: #EAF2ED;
             border: 1px solid #C4DACB;
             border-radius: 12px;
             padding: 24px;
         }
         .guide-title {
-            color: #004D26; /* Teks hijau gelap */
+            color: #004D26;
             font-size: 1.05rem;
             font-weight: 600;
             display: flex;
@@ -64,7 +61,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
         .step-num {
-            background-color: #006633; /* Hijau solid khas Pegadaian */
+            background-color: #006633;
             color: white;
             width: 26px;
             height: 26px;
@@ -81,11 +78,9 @@
             font-size: 0.9em;
             line-height: 1.6;
         }
-
-        /* Highlight Catatan Khusus (Aksen Emas Pegadaian) */
         .note-highlight {
-            background-color: #FFF9E6; /* Kuning emas pudar yang elegan */
-            border-left: 4px solid #F2A900; /* Warna Emas Pegadaian */
+            background-color: #FFF9E6;
+            border-left: 4px solid #F2A900;
             padding: 14px 18px;
             border-radius: 8px;
             color: #5C460C;
@@ -94,17 +89,16 @@
             display: flex;
             align-items: flex-start;
             gap: 10px;
-            box-shadow: 0 2px 5px rgba(242, 169, 0, 0.05);
         }
 
-        /* Kotak Pencarian / Filter (Senada dengan Panduan) */
+        /* Kotak Pencarian / Filter */
         .filter-box { 
-            background-color: #EAF2ED; /* Latar hijau pudar sama dengan panduan */
+            background-color: #EAF2ED;
             padding: 20px; 
             border-radius: 12px; 
             margin-bottom: 25px; 
             border: 1px solid #C4DACB;
-            border-left: 5px solid #006633; /* Garis tepi kiri Hijau Pegadaian */
+            border-left: 5px solid #006633;
         }
         .filter-label {
             color: #004D26 !important;
@@ -112,10 +106,8 @@
             margin-bottom: 8px;
         }
         
-        /* Merapikan susunan layout Select2 Bootstrap agar presisi & sesuai tema */
-        .select2-container {
-            display: block;
-        }
+        /* Select2 Style Override */
+        .select2-container { display: block; }
         .select2-container--default .select2-selection--multiple { 
             border-color: #CBD5E1 !important; 
             border-radius: 8px !important; 
@@ -136,9 +128,6 @@
             font-weight: 500;
             margin-top: 4px !important;
         }
-        .select2-container--default .select2-search--inline .select2-search__field {
-            margin-top: 6px !important;
-        }
         
         .form-select { 
             border-color: #CBD5E1; 
@@ -150,19 +139,11 @@
             border-color: #006633; 
             box-shadow: 0 0 0 0.25rem rgba(0, 102, 51, 0.15); 
         }
-        .text-pegadaian {
-            color: #006633 !important;
-        }
+        .text-pegadaian { color: #006633 !important; }
 
         /* Fitur Beranak (Collapse/Details) */
-        summary { 
-            cursor: pointer; 
-            list-style: none; 
-            outline: none; 
-        }
-        summary::-webkit-details-marker { 
-            display: none; 
-        }
+        summary { cursor: pointer; list-style: none; outline: none; }
+        summary::-webkit-details-marker { display: none; }
         .group-summary::after, .item-summary::after { 
             content: ' ▼'; 
             float: right; 
@@ -207,9 +188,7 @@
             border-radius: 10px; 
             font-size: 0.95em; 
         }
-        .item-summary:hover { 
-            background-color: #F1F5F9; 
-        }
+        .item-summary:hover { background-color: #F1F5F9; }
         .item-body { 
             padding: 20px; 
             border-top: 1px solid #E2E8F0; 
@@ -219,7 +198,7 @@
             font-size: 0.9em; 
         }
         
-        /* Tombol & Badge di Tabel */
+        /* Tombol & Badge */
         .badge-form { 
             font-size: 0.85em; 
             padding: 8px 16px; 
@@ -259,91 +238,53 @@
 
 <div class="container-fluid main-container">
     
+    <!-- Header Terisi Otomatis Dari JSON -->
     <div class="text-center mb-4">
-        <h2 class="fs-4 page-title mb-2">Dashboard Feedback Kebijakan TI </h2>
-        <p class="page-subtitle mx-auto">
-            Media penyampaian umpan balik (feedback) atas kebijakan teknologi informasi. Partisipasi Anda dalam mengisi form ini sangat penting demi perbaikan berkelanjutan, sesuai dengan fungsi yang diatur dalam RASCI Matrix.
-        </p>
+        <h2 id="dashboardTitle" class="fs-4 page-title mb-2">Loading Title...</h2>
+        <p id="dashboardDesc" class="page-subtitle mx-auto">Loading Description...</p>
     </div>
 
+    <!-- Panduan Singkat -->
     <div class="guide-card mb-4">
-        <div class="guide-title mb-3">
-            <span>📗</span> Panduan Singkat Pengisian Form Feedback Kebijakan TI
-        </div>
-        
+        <div class="guide-title mb-3"><span>📗</span> Panduan Singkat Pengisian Form Feedback Kebijakan TI</div>
         <div class="row g-3">
             <div class="col-md-4">
                 <div class="step-box">
                     <div class="step-num">1</div>
-                    <div class="step-text">
-                        <strong>Pilih Unit Kerja:</strong> Gunakan fitur filter pencarian di bawah untuk memilih <b>Divisi</b>, <b>Departemen</b>, dan set status ke <span class="text-pegadaian fw-bold">✅ Sudah Tersedia</span>.
-                    </div>
+                    <div class="step-text"><strong>Pilih Unit Kerja:</strong> Gunakan fitur filter pencarian di bawah untuk memilih <b>Divisi</b>, <b>Departemen</b>.</div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="step-box">
                     <div class="step-num">2</div>
-                    <div class="step-text">
-                        <strong>Pilih & Buka Form:</strong> Cari dokumen juklak terkait, lalu klik tombol <span class="text-pegadaian fw-bold">📝 Isi Form Sekarang</span> untuk langsung membuka tautan evaluasi Google Form.
-                    </div>
+                    <div class="step-text"><strong>Pilih & Buka Form:</strong> Cari dokumen juklak terkait, lalu klik tombol <span class="text-pegadaian fw-bold">📝 Isi Form Sekarang</span>.</div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="step-box">
                     <div class="step-num">3</div>
-                    <div class="step-text">
-                        <strong>Validasi RASCI & Kirim:</strong> Pastikan peran Anda sesuai dengan <b>RASCI Matrix yang telah disepakati oleh Kepala Departemen TI dan Divisi Human Capital</b>, gunakan akun email korporat, isi identitas diri secara lengkap, lalu klik kirim.
-                    </div>
+                    <div class="step-text"><strong>Validasi RASCI & Kirim:</strong> Pastikan peran Anda sesuai dengan kesepakatan RASCI Matrix menggunakan email korporat.</div>
                 </div>
             </div>
         </div>
-
         <div class="note-highlight">
             <span style="font-size: 1.2em;">💡</span>
-            <div>
-                <strong>Catatan:</strong> Jika status dokumen tertulis ⏳ <em>Belum Tersedia</em>, form sedang dalam antrean rilis. Hubungi tim <b>Tata Kelola TI</b>.
-            </div>
+            <div><strong>Catatan:</strong> Jika status dokumen tertulis ⏳ <em>Belum Tersedia</em>, form sedang dalam antrean rilis. Hubungi tim Tata Kelola TI.</div>
         </div>
     </div>
     
+    <!-- Elemen Filter Dropdown -->
     <div class="row filter-box mx-0">
         <div class="col-md-4 mb-3 mb-md-0">
             <label class="form-label fw-bold filter-label">🔍 Divisi Anda:</label>
             <select id="searchDivisi" class="form-control" multiple="multiple" data-placeholder="Pilih Divisi...">
-                <option value="Divisi Strategi, Arsitektur dan Perencanaan TI">Divisi Strategi, Arsitektur dan Perencanaan TI</option>
-                <option value="Divisi Pengembangan dan Aplikasi TI">Divisi Pengembangan dan Aplikasi TI</option>
-                <option value="Divisi Operasional & Infrastruktur TI">Divisi Operasional & Infrastruktur TI</option>
-                <option value="Divisi IT Security">Divisi IT Security</option>
-                <option value="Divisi Manajemen Data TI">Divisi Manajemen Data TI</option>
-                <option value="Divisi Digital">Divisi Digital</option>
+                <!-- Diisi otomatis via JS -->
             </select>
         </div>
         <div class="col-md-4 mb-3 mb-md-0">
             <label class="form-label fw-bold filter-label">🔍 Departemen Anda:</label>
             <select id="searchDept" class="form-control" multiple="multiple" data-placeholder="Pilih Departemen...">
-                <option value="All Departemen">All Departemen</option>
-                <option value="Departemen Perencanaan Arsitektur TI">Departemen Perencanaan Arsitektur TI</option>
-                <option value="Departemen IT Business Analyst">Departemen IT Business Analyst</option>
-                <option value="Departemen Project Management Office IT">Departemen Project Management Office IT</option>
-                <option value="Departemen Penganggaran TI">Departemen Penganggaran TI</option>
-                <option value="Product Ops">Product Ops</option>
-                <option value="Departemen Digital Center of Excellence">Departemen Digital Center of Excellence</option>
-                <option value="Departemen Sentra Operasi">Departemen Sentra Operasi</option>
-                <option value="Departemen Aplikasi Bisnis">Departemen Aplikasi Bisnis</option>
-                <option value="Departemen Aplikasi Bisnis Digital">Departemen Aplikasi Bisnis Digital</option>
-                <option value="Departemen Aplikasi Support">Departemen Aplikasi Support</option>
-                <option value="Departemen IT Quality Assurance">Departemen IT Quality Assurance</option>
-                <option value="Departemen IT Data Operation">Departemen IT Data Operation</option>
-                <option value="Departemen IT Release Management">Departemen IT Release Management</option>
-                <option value="Departemen IT Operation">Departemen IT Operation</option>
-                <option value="Departemen Security Monitoring & Analysis">Departemen Security Monitoring & Analysis</option>
-                <option value="Departemen Security Operations Service">Departemen Security Operations Service</option>
-                <option value="Departemen IT Infrastructure">Departemen IT Infrastructure</option>
-                <option value="Departemen Security Architecture">Departemen Security Architecture</option>
-                <option value="Departemen Data Architecture">Departemen Data Architecture</option>
-                <option value="Departemen Data Business Development">Departemen Data Business Development</option>
-                <option value="Departemen Data Business Intelligence">Departemen Data Business Intelligence</option>
-                <option value="Departemen Tata Kelola TI">Departemen Tata Kelola TI</option>
+                <!-- Diisi otomatis via JS -->
             </select>
         </div>
         <div class="col-md-4">
@@ -356,540 +297,9 @@
         </div>
     </div>
 
+    <!-- Container Utama Data Juklak -->
     <div id="dataContainer">
-
-        <details class="juklak-group domain-1" open>
-            <summary class="group-summary">📁 1. Pedoman Strategi TI</summary>
-            <div class="group-content">
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 1.1 Penyusunan RSTI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Strategi, Arsitektur dan Perencanaan TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Perencanaan Arsitektur TI</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 1.2 Pengelolaan Business Relationship</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Pengembangan dan Aplikasi TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen IT Business Analyst, Departemen Project Management Office IT</span></p> 
-                        <a href="https://forms.gle/gjYAsi48kFBbH21w5" target="_blank" class="btn btn-soft-success btn-sm badge-form text-decoration-none">📝 Isi Form Sekarang</a>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 1.3 Demand Management</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Strategi, Arsitektur dan Perencanaan TI, Divisi Pengembangan dan Aplikasi TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Project Management Office IT, Departemen Penganggaran TI, Departemen IT Business Analyst</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 1.4 Pengelolaan Kualitas</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Pengembangan dan Aplikasi TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Product Ops, Departemen IT Business Analyst</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 1.5 Pengelolaan IT Enterprise Architecture</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Strategi, Arsitektur dan Perencanaan TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Perencanaan Arsitektur TI</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 1.6 Pengelolaan Proof of Concept</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Strategi, Arsitektur dan Perencanaan TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Perencanaan Arsitektur TI, Departemen Digital Center of Excellence</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 1.7 Pengelolaan Katalog Layanan TI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Strategi, Arsitektur dan Perencanaan TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Perencanaan Arsitektur TI</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 1.8 Pengelolaan Tingkat Layanan</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Sentra Operasi</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-            </div>
-        </details>
-
-        <details class="juklak-group domain-2">
-            <summary class="group-summary">📁 2. Pedoman Development</summary>
-            <div class="group-content">
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 2.1 Business Requirement</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Pengembangan dan Aplikasi TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen IT Business Analyst</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 2.2 Perancangan Sistem Aplikasi</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Pengembangan dan Aplikasi TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen IT Business Analyst</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 2.3 Development</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Pengembangan dan Aplikasi TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen IT Business Analyst, Departemen Aplikasi Bisnis, Departemen Aplikasi Bisnis Digital, Departemen Aplikasi Support</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 2.4 Pengujian Sistem Aplikasi TI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Pengembangan dan Aplikasi TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen IT Quality Assurance</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 2.5 Cache Management</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Pengembangan dan Aplikasi TI, Divisi Operasional & Infrastruktur TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Aplikasi Bisnis, Departemen Aplikasi Support, Departemen IT Data Operation, Departemen IT Release Management</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-            </div>
-        </details>
-
-        <details class="juklak-group domain-3">
-            <summary class="group-summary">📁 3. Pedoman Transition</summary>
-            <div class="group-content">
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 3.1 Change Management Infrastruktur TI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen IT Release Management</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 3.2 Change, Release & Rollback Management Aplikasi</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI, Divisi Pengembangan dan Aplikasi TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen IT Release Management, Departemen IT Quality Assurance, Departemen Sentra Operasi</span></p>
-                        <a href="https://forms.gle/xBqgrtFpU8Uw7eV39" target="_blank" class="btn btn-soft-success btn-sm badge-form text-decoration-none">📝 Isi Form Sekarang</a>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 3.3 Pengelolaan Konfigurasi</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Strategi, Arsitektur dan Perencanaan TI, Divisi Operasional & Infrastruktur TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Perencanaan Arsitektur TI, Departemen IT Data Operation, Departemen IT Release Management</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 3.4 Pengelolaan Exception</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Digital, Divisi Strategi, Arsitektur dan Perencanaan TI, Divisi Pengembangan dan Aplikasi TI, Divisi Operasional & Infrastruktur TI, Divisi Manajemen Data TI, Divisi IT Security</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-            </div>
-        </details>
-
-        <details class="juklak-group domain-4">
-            <summary class="group-summary">📁 4. Pedoman Operasional TI</summary>
-            <div class="group-content">
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 4.1 Monitoring dan Pengelolaan Event</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI, Divisi IT Security</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen IT Operation, Departemen Security Monitoring & Analysis, Departemen Security Operations Service, Departemen IT Infrastructure</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 4.2 Manajemen Request Layanan TI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 4.3 Manajemen Insiden</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 4.4 Perbaikan Sistem Aplikasi TI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Sentra Operasi</span></p>
-                        <a href="https://forms.gle/arg14JLQUAcKmjGXA" target="_blank" class="btn btn-soft-success btn-sm badge-form text-decoration-none">📝 Isi Form Sekarang</a>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 4.5 Perbaikan Infrastruktur TI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen IT Operation, Departemen IT Infrastructure</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 4.6 Manajemen Problem</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 4.7 Patch Management</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi IT Security, Divisi Operasional & Infrastruktur TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 4.8 Operasional dan Pemeliharaan Infrastruktur</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 4.9 Pengelolaan Data Center</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen IT Operation</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 4.10 Pengelolaan Aset TI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI, Divisi Strategi, Arsitektur dan Perencanaan TI, Divisi IT Security, Divisi Digital</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Perencanaan Arsitektur TI, Departemen Penganggaran TI, Departemen IT Infrastructure, Departemen Security Architecture, Departemen Security Monitoring & Analysis, Departemen Security Operations Service</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 4.11 Pengelolaan API</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI, Divisi IT Security</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Sentra Operasi, Departemen IT Release Management, Departemen IT Operation, Departemen Security Architecture, Departemen Security Monitoring & Analysis, Departemen Security Operations Service</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 4.12 Pengelolaan Endpoint</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI, Divisi IT Security</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen IT Operation, Departemen Security Operations Service</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 4.13 Pengelolaan Cloud</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Strategi, Arsitektur dan Perencanaan TI, Divisi IT Security, Divisi Manajemen Data TI, Divisi Operasional & Infrastruktur TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Perencanaan Arsitektur TI, Departemen Security Operations Service, Departemen IT Operation, Departemen IT Data Operation, Departemen Data Architecture, Departemen Data Business Development, Departemen Data Business Intelligence</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 4.14 Pengelolaan Ketersediaan dan Kapasitas</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI, Divisi Strategi, Arsitektur dan Perencanaan TI, Divisi IT Security</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen, Departemen Perencanaan Arsitektur TI</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-            </div>
-        </details>
-
-        <details class="juklak-group domain-5">
-            <summary class="group-summary">📁 5. Pedoman Manajemen Keamanan</summary>
-            <div class="group-content">
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 5.1 Pengelolaan Hak Akses Pengguna</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi IT Security</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Security Operations Service</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 5.2 Kriptografi</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi IT Security, Divisi Strategi, Arsitektur dan Perencanaan TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen, Departemen Digital Center of Excellence</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 5.3 Pengujian dan Pengamanan Pengembangan Aplikasi</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Strategi, Arsitektur dan Perencanaan TI, Divisi IT Security, Divisi Pengembangan dan Aplikasi TI, Divisi Operasional & Infrastruktur TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Perencanaan Arsitektur TI, Departemen Security Architecture, Departemen Security Monitoring & Analysis, Departemen Aplikasi Bisnis, Departemen Aplikasi Bisnis Digital, Departemen Aplikasi Support, Departemen IT Release Management, Departemen IT Infrastructure</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 5.4 Manajemen Insiden Pengamanan Informasi</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi IT Security</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Security Monitoring & Analysis</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-            </div>
-        </details>
-
-        <details class="juklak-group domain-6">
-            <summary class="group-summary">📁 6. Pedoman Manajemen Kontinuitas TI</summary>
-            <div class="group-content">
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 6.1 Pengelolaan Kontinuitas TI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi IT Security, Divisi Operasional & Infrastruktur TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Security Monitoring & Analysis, All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 6.2 Pengujian DRP TI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI, Divisi IT Security, Divisi Manajemen Data TI, Divisi Strategi, Arsitektur dan Perencanaan TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-            </div>
-        </details>
-
-        <details class="juklak-group domain-7">
-            <summary class="group-summary">📁 7. Pedoman Manajemen Data</summary>
-            <div class="group-content">
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 7.1 Pengelolaan Data Architecture</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Manajemen Data TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 7.2 Pengelolaan Data Model</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Manajemen Data TI, Divisi Pengembangan dan Aplikasi TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen, Departemen Aplikasi Bisnis, Departemen Aplikasi Bisnis Digital, Departemen Aplikasi Support, Departemen IT Business Analyst</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 7.3 Pengelolaan Database</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI, Divisi Manajemen Data TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 7.4 Pengelolaan Data Security</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi IT Security</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Security Monitoring & Analysis, Departemen Security Operations Service</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 7.5 Pengelolaan Metadata Management</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Manajemen Data TI, Divisi Pengembangan dan Aplikasi TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Data Architecture, Departemen Aplikasi Bisnis, Departemen Aplikasi Bisnis Digital, Departemen Aplikasi Support</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 7.6 Pengelolaan Data Warehouse, Data Lake & Business Intelligence</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Manajemen Data TI, Divisi Pengembangan dan Aplikasi TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Data Architecture, Departemen Data Business Development, Departemen Data Business Intelligence, Departemen Aplikasi Bisnis, Departemen Aplikasi Bisnis Digital, Departemen Aplikasi Support</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 7.7 Pengelolaan Data Quality</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Manajemen Data TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 7.8 Pengelolaan Master Data Management</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Manajemen Data TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Data Architecture</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 7.9 Pengelolaan Data Integration dan Interoperability</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Manajemen Data TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen</span></p>
-                        <a href="https://forms.gle/Yecn9osLRC8kC47k9" target="_blank" class="btn btn-soft-success btn-sm badge-form text-decoration-none">📝 Isi Form Sekarang</a>
-                    </div>
-                </details>
-            </div>
-        </details>
-
-        <details class="juklak-group domain-8">
-            <summary class="group-summary">📁 8. Pedoman AIMS</summary>
-            <div class="group-content">
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 8.1 Sistem Manajemen Kecerdasan Buatan (AIMS)</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Manajemen Data TI, Divisi Strategi, Arsitektur dan Perencanaan TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Data Architecture, Departemen Data Business Development, Departemen Data Business Intelligence, Departemen IT Data Operation, Departemen Digital Center of Excellence, Departemen Project Management Office IT, Departemen Perencanaan Arsitektur TI</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-            </div>
-        </details>
-
-        <details class="juklak-group domain-9">
-            <summary class="group-summary">📁 9. Pedoman Continual Improvement</summary>
-            <div class="group-content">
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 9.1 Evaluasi Kepatuhan TI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Strategi, Arsitektur dan Perencanaan TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Tata Kelola TI</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 9.2 Tinjauan Manajemen</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Strategi, Arsitektur dan Perencanaan TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Tata Kelola TI</span></p>
-                        <a href="https://forms.gle/hScYtcQVKuox53UC7" target="_blank" class="btn btn-soft-success btn-sm badge-form text-decoration-none">📝 Isi Form Sekarang</a>
-                    </div>
-                </details>
-
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 9.3 Perbaikan Berkelanjutan TI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Strategi, Arsitektur dan Perencanaan TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Tata Kelola TI</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-            </div>
-        </details>
-
-        <details class="juklak-group domain-10">
-            <summary class="group-summary">📁 10. Pedoman IT Organize</summary>
-            <div class="group-content">
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 10.1 Manajemen Proyek TI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Strategi, Arsitektur dan Perencanaan TI, Divisi Pengembangan dan Aplikasi TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Project Management Office IT, All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 10.2 Post Implementation Review</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Pengembangan dan Aplikasi TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen IT Business Analyst, Departemen IT Quality Assurance</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 10.3 Pengadaan Barang dan Jasa TI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Strategi, Arsitektur dan Perencanaan TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Penganggaran TI</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 10.4 Pengelolaan KMS</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI, Divisi IT Security, Divisi Manajemen Data TI, Divisi Pengembangan dan Aplikasi TI, Divisi Strategi, Arsitektur dan Perencanaan TI, Divisi Digital</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 10.5 Pengendalian Dokumentasi Informasi TI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Strategi, Arsitektur dan Perencanaan TI</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">Departemen Tata Kelola TI</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 10.6 Pengelolaan Petunjuk Teknis</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI, Divisi Pengembangan dan Aplikasi TI, Divisi Strategi, Arsitektur dan Perencanaan TI, Divisi Digital, Divisi Manajemen Data TI, Divisi IT Security</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 10.7 Pengelolaan Kompetensi dan Screening SDM TI</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Operasional & Infrastruktur TI, Divisi IT Security, Divisi Manajemen Data TI, Divisi Pengembangan dan Aplikasi TI, Divisi Strategi, Arsitektur dan Perencanaan TI, Divisi Digital</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-            </div>
-        </details>
-
-        <details class="juklak-group domain-11">
-            <summary class="group-summary">📁 Kebijakan Lainnya</summary>
-            <div class="group-content">
-                <details class="juklak-item">
-                    <summary class="item-summary">📄 Implementasi TRING!</summary>
-                    <div class="item-body">
-                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">Divisi Digital</span></p>
-                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">All Departemen</span></p>
-                        <span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>
-                    </div>
-                </details>
-            </div>
-        </details>
-
+        <div class="text-center p-5 text-muted">Sedang memuat data kebijakan...</div>
     </div>
 </div>
 
@@ -897,6 +307,97 @@
 
 <script>
 $(document).ready(function() {
+    // Membaca data dari feedback.json
+    fetch('feedback.json')
+        .then(response => {
+            if (!response.ok) throw new Error("Gagal memuat file feedback.json");
+            return response.json();
+        })
+        .then(data => {
+            renderDashboard(data);
+            populateFilters(data);
+            initSelect2();
+        })
+        .catch(error => {
+            console.error(error);
+            document.getElementById('dataContainer').innerHTML = `<div class="alert alert-danger">Gagal memuat data. Pastikan file feedback.json berada di folder yang sama dan jalankan menggunakan local server (Live Server). Error: ${error.message}</div>`;
+        });
+});
+
+// Fungsi untuk me-render data Juklak dari JSON ke HTML
+function renderDashboard(data) {
+    document.getElementById('dashboardTitle').textContent = data.dashboard_title;
+    document.getElementById('dashboardDesc').textContent = data.description;
+
+    let container = document.getElementById('dataContainer');
+    container.innerHTML = ''; 
+
+    data.juklak_data.forEach(group => {
+        let isOpen = group.domain_id === 1 ? 'open' : ''; 
+        let groupHtml = `
+            <details class="juklak-group domain-${group.domain_id}" ${isOpen}>
+                <summary class="group-summary">📁 ${group.domain_id ? group.domain_id + '. ' : ''}${group.domain_name}</summary>
+                <div class="group-content">
+        `;
+
+        group.items.forEach(item => {
+            let itemIdStr = item.item_id ? `${item.item_id} ` : '';
+            let divisiStr = item.divisi.join(', ');
+            let deptStr = item.departemen.join(', ');
+            
+            let statusBtn = '';
+            if (item.status === "Sudah Tersedia" && item.url_form) {
+                statusBtn = `<a href="${item.url_form}" target="_blank" class="btn btn-soft-success btn-sm badge-form text-decoration-none">📝 Isi Form Sekarang</a>`;
+            } else {
+                statusBtn = `<span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>`;
+            }
+
+            groupHtml += `
+                <details class="juklak-item">
+                    <summary class="item-summary">📄 ${itemIdStr}${item.title}</summary>
+                    <div class="item-body">
+                        <p class="mb-1"><small class="text-muted">🏢 Divisi:</small> <br> <span class="divisi-text fw-bold">${divisiStr}</span></p>
+                        <p class="mb-3"><small class="text-muted">👥 Departemen:</small> <br> <span class="dept-text fw-bold">${deptStr}</span></p>
+                        ${statusBtn}
+                    </div>
+                </details>
+            `;
+        });
+
+        groupHtml += `</div></details>`;
+        container.innerHTML += groupHtml;
+    });
+}
+
+// Fungsi untuk mengekstrak dan mengisi opsi filter secara dinamis dari JSON
+function populateFilters(data) {
+    let divisioSet = new Set();
+    let deptSet = new Set();
+
+    data.juklak_data.forEach(group => {
+        group.items.forEach(item => {
+            item.divisi.forEach(d => divisioSet.add(d));
+            item.departemen.forEach(dept => deptSet.add(dept));
+        });
+    });
+
+    let searchDivisi = $('#searchDivisi');
+    Array.from(divisioSet).sort().forEach(divisi => {
+        searchDivisi.append(new Option(divisi, divisi));
+    });
+
+    let searchDept = $('#searchDept');
+    if(deptSet.has("All Departemen")) {
+        searchDept.append(new Option("All Departemen", "All Departemen"));
+        deptSet.delete("All Departemen");
+    }
+    Array.from(deptSet).sort().forEach(dept => {
+        searchDept.append(new Option(dept, dept));
+    });
+}
+
+// Inisialisasi plugin Select2 & event handler untuk filter pencarian
+function initSelect2() {
     $('#searchDivisi, #searchDept').select2({
         width: '100%',
         allowClear: true
@@ -905,8 +406,9 @@ $(document).ready(function() {
     $('#searchDivisi, #searchDept, #searchFormStatus').on('change', function() {
         filterData();
     });
-});
+}
 
+// Logika pemfilteran visual
 function filterData() {
     let selectedDivisi = $('#searchDivisi').val() || [];
     let selectedDept = $('#searchDept').val() || [];
