@@ -251,7 +251,7 @@
             <div class="col-md-4">
                 <div class="step-box">
                     <div class="step-num">1</div>
-                    <div class="step-text"><strong>Pilih Unit Kerja:</strong> Gunakan fitur filter pencarian di bawah untuk memilih <b>Divisi</b>, <b>Departemen</b>.</div>
+                    <div class="step-text"><strong>Pilih Unit Kerja:</strong> Gunakan fitur filter pencarian di bawah untuk memilih <b>Divisi</b> dan <b>Departemen</b>.</div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -269,7 +269,7 @@
         </div>
         <div class="note-highlight">
             <span style="font-size: 1.2em;">💡</span>
-            <div><strong>Catatan:</strong> Jika status dokumen tertulis ⏳ <em>Belum Tersedia</em>, form sedang dalam antrean rilis. Hubungi tim Tata Kelola TI.</div>
+            <div><strong>Catatan:</strong> Jika status dokumen tertulis ⏳ <em>Belum Tersedia</em> atau dalam antrean, silakan hubungi tim Tata Kelola TI.</div>
         </div>
     </div>
     
@@ -292,7 +292,7 @@
             <select id="searchFormStatus" class="form-select">
                 <option value="">Tampilkan Semua</option>
                 <option value="tersedia">✅ Sudah Tersedia</option>
-                <option value="belum">⏳ Belum Tersedia</option>
+                <option value="belum">⏳ Belum Tersedia / Lainnya</option>
             </select>
         </div>
     </div>
@@ -307,7 +307,7 @@
 
 <script>
 $(document).ready(function() {
-    // Membaca data dari feedback.json
+    // Membaca data dari file feedback.json
     fetch('feedback.json')
         .then(response => {
             if (!response.ok) throw new Error("Gagal memuat file feedback.json");
@@ -320,7 +320,7 @@ $(document).ready(function() {
         })
         .catch(error => {
             console.error(error);
-            document.getElementById('dataContainer').innerHTML = `<div class="alert alert-danger">Gagal memuat data. Pastikan file feedback.json berada di folder yang sama dan jalankan menggunakan local server (Live Server). Error: ${error.message}</div>`;
+            document.getElementById('dataContainer').innerHTML = `<div class="alert alert-danger">Gagal memuat data. Pastikan file feedback.json berada di folder yang sama. Error: ${error.message}</div>`;
         });
 });
 
@@ -349,7 +349,8 @@ function renderDashboard(data) {
             if (item.status === "Sudah Tersedia" && item.url_form) {
                 statusBtn = `<a href="${item.url_form}" target="_blank" class="btn btn-soft-success btn-sm badge-form text-decoration-none">📝 Isi Form Sekarang</a>`;
             } else {
-                statusBtn = `<span class="badge badge-soft-secondary badge-form">Belum Tersedia</span>`;
+                // BUG FIXED: Teks badge abu-abu sekarang dinamis mengambil nilai dari JSON item.status
+                statusBtn = `<span class="badge badge-soft-secondary badge-form">${item.status}</span>`;
             }
 
             groupHtml += `
