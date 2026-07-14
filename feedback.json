@@ -279,8 +279,8 @@
         {
           "item_id": "4.9",
           "title": "Pengelolaan Data Center",
-          "divisi": ["Divisi Operasional & Infrastruktur TI"],
-          "departemen": ["Departemen IT Operation"],
+          "divisi": ["Divisi Operasional & Infrastruktur TI, Divisi Strategi, Arsitektur dan Perencanaan TI, Divisi IT Security, Divisi Manajemen Data TI"],
+          "departemen": ["Departemen IT Operation, Departemen Project Management Office IT, Departemen Data Business Intelligence, Departemen Security Architecture, Departemen Security Operations Service, Departemen Digital Center of Excellence"],
           "status": "Sudah Tersedia",
           "url_form": "https://forms.gle/sMV6CDpQHFySheHa9"
         },
