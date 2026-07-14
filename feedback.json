@@ -281,8 +281,8 @@
           "title": "Pengelolaan Data Center",
           "divisi": ["Divisi Operasional & Infrastruktur TI"],
           "departemen": ["Departemen IT Operation"],
-          "status": "Belum Tersedia",
-          "url_form": null
+          "status": "Sudah Tersedia",
+          "url_form": "https://forms.gle/sMV6CDpQHFySheHa9"
         },
         {
           "item_id": "4.10",
@@ -542,7 +542,7 @@
           "divisi": ["Divisi Manajemen Data TI"],
           "departemen": ["All Departemen"],
           "status": "Sudah Tersedia",
-          "url_form": "https://forms.gle/Yecn9osLRC8kC47k9"
+          "url_form": "https://forms.gle/wNLY7nvEUdr6gXRYA"
         }
       ]
     },
