@@ -3,680 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hirarki Kebijakan, Pedoman, dan Peraturan TI</title>
+    <title>IT Governance Sites - PT Pegadaian</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #f5faf7; 
+            margin: 0; 
+            padding: 20px; 
             color: #333;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
         }
         .container {
-            max-width: 1100px;
+            max-width: 1300px;
             margin: 0 auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
-        h1 {
-            color: #1a365d;
-            text-align: center;
+        
+        h1 { text-align: center; color: #006633; margin-bottom: 20px; font-size: 32px; }
+        
+        .intro-card {
+            background: #ffffff;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             margin-bottom: 30px;
-            font-size: 28px;
-            border-bottom: 3px solid #2b6cb0;
-            padding-bottom: 15px;
-        }
-        .kebijakan-block {
-            margin-bottom: 25px;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-        }
-        .kebijakan-header {
-            background-color: #2b6cb0;
-            color: white;
-            padding: 15px 20px;
-            font-size: 18px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        .kebijakan-header::before {
-            content: "📁 ";
-        }
-        .kebijakan-content {
-            padding: 20px;
-            background-color: #fff;
-        }
-        .juklak-block {
-            margin-bottom: 15px;
-            padding-left: 15px;
-            border-left: 3px solid #4299e1;
-        }
-        .juklak-title {
+            line-height: 1.6;
+            color: #4a5568;
+            text-align: center;
             font-size: 16px;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
+            border-top: 4px solid #006633;
         }
-        .juklak-title::before {
-            content: "📄 ";
-            font-size: 14px;
-        }
-        .peraturan-list {
-            list-style-type: none;
-            padding-left: 25px;
-            margin: 0;
-        }
-        .peraturan-item {
-            background-color: #f7fafc;
-            border: 1px solid #edf2f7;
-            padding: 8px 12px;
-            margin-bottom: 6px;
-            border-radius: 4px;
-            font-size: 14px;
-            color: #4a5568;
-            display: flex;
-            align-items: flex-start;
-        }
-        .peraturan-item::before {
-            content: "⚖️ ";
-            margin-right: 4px;
-            font-size: 12px;
-            margin-top: 2px;
-        }
-        .no-peraturan {
-            color: #a0aec0;
-            font-style: italic;
-            font-size: 14px;
-            padding-left: 25px;
-        }
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            background: #ebf8ff;
-            padding: 15px;
-            border-radius: 6px;
-            margin-bottom: 30px;
-            border: 1px solid #bee3f8;
-        }
-        .stat-item {
+
+        .search-container {
             text-align: center;
+            margin-bottom: 30px;
         }
-        .stat-value {
-            font-size: 20px;
-            font-weight: bold;
-            color: #2b6cb0;
+        .search-input {
+            width: 100%;
+            max-width: 600px;
+            padding: 14px 24px;
+            font-size: 16px;
+            border: 2px solid #cbd5e0;
+            border-radius: 30px;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            font-family: inherit;
         }
-        .stat-label {
-            font-size: 12px;
-            color: #4a5568;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .search-input:focus {
+            border-color: #006633;
+            box-shadow: 0 4px 15px rgba(0, 102, 51, 0.2);
         }
+
+        .banner { 
+            background: #006633; 
+            padding: 15px; 
+            border-radius: 12px; 
+            text-align: center; 
+            font-weight: bold; 
+            font-size: 18px;
+            margin-bottom: 25px; 
+            color: #ffffff; 
+            box-shadow: 0 4px 12px rgba(0, 102, 51, 0.15);
+        }
+
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px; 
+        }
+        
+        @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 850px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 550px) { .grid { grid-template-columns: 1fr; } .intro-card { padding: 20px; } }
+
+        .col { border-radius: 18px; padding: 16px; transition: all 0.3s ease; }
+        .h { display: block; text-decoration: none; color: #fff; padding: 14px; border-radius: 12px; font-weight: bold; text-align: center; margin-bottom: 15px; font-size: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        
+        .card { 
+            display: block; 
+            text-decoration: none; 
+            background: #fff; 
+            color: #2d3748; 
+            padding: 12px 15px; 
+            border-radius: 10px; 
+            margin-bottom: 10px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,.06); 
+            transition: all 0.2s ease; 
+            border-left: 4px solid transparent; 
+        }
+        .card:hover { transform: translateY(-3px); box-shadow: 0 6px 15px rgba(0,0,0,.1); border-left-color: inherit; color: #000; }
+        .small { font-size: 12px; font-weight: bold; color: #7f8c8d; margin-bottom: 4px; }
+        
+        /* Palet Warna Kolom */
+        .green { background: #e8f5e9; border: 1px solid #c8e6c9; } .green .h { background: #4caf50; } .green .card:hover { border-left-color: #4caf50; }
+        .orange { background: #fff3e0; border: 1px solid #ffe0b2; } .orange .h { background: #ff9800; } .orange .card:hover { border-left-color: #ff9800; }
+        .blue { background: #e3f2fd; border: 1px solid #bbdefb; } .blue .h { background: #2196f3; } .blue .card:hover { border-left-color: #2196f3; }
+        .purple { background: #f3e5f5; border: 1px solid #e1bee7; } .purple .h { background: #9c27b0; } .purple .card:hover { border-left-color: #9c27b0; }
+        .red { background: #ffebee; border: 1px solid #ffcdd2; } .red .h { background: #f44336; } .red .card:hover { border-left-color: #f44336; }
+        .teal { background: #e0f2f1; border: 1px solid #b2dfdb; } .teal .h { background: #009688; } .teal .card:hover { border-left-color: #009688; }
+        .indigo { background: #e8eaf6; border: 1px solid #c5cae9; } .indigo .h { background: #3f51b5; } .indigo .card:hover { border-left-color: #3f51b5; }
+        .pink { background: #fce4ec; border: 1px solid #f8bbd0; } .pink .h { background: #e91e63; } .pink .card:hover { border-left-color: #e91e63; }
+        .gray { background: #eceff1; border: 1px solid #cfd8dc; } .gray .h { background: #607d8b; } .gray .card:hover { border-left-color: #607d8b; }
+        .cyan { background: #e0f7fa; border: 1px solid #b2ebf2; } .cyan .h { background: #00bcd4; } .cyan .card:hover { border-left-color: #00bcd4; }
+        .brown { background: #efebe9; border: 1px solid #d7ccc8; } .brown .h { background: #795548; } .brown .card:hover { border-left-color: #795548; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hirarki Kebijakan, Pedoman, dan Peraturan TI</h1>
-        
-        <div class="stats">
-            <div class="stat-item">
-                <div class="stat-value">11</div>
-                <div class="stat-label">Kebijakan / Pedoman</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">64</div>
-                <div class="stat-label">Petunjuk Pelaksanaan</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">223</div>
-                <div class="stat-label">Peraturan TI Saat Ini</div>
-            </div>
-        </div>
-        <div class="kebijakan-block">
-            <div class="kebijakan-header">0. Kebijakan Umum Pengelolaan TI dan Manajemen Inovasi</div>
-            <div class="kebijakan-content">
-                <div class="juklak-block">
-                    <div class="juklak-title">Tanpa Petunjuk Pelaksanaan</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Kebijakan Umum No. 70 Tahun 2023 tentang Teknologi Informasi dan Manajemen Inovasi</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="kebijakan-block">
-            <div class="kebijakan-header">1. Pedoman Strategi TI</div>
-            <div class="kebijakan-content">
-                <div class="juklak-block">
-                    <div class="juklak-title">1.1 Petunjuk Pelaksanaan Penyusunan RSTI</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 61 Tahun 2022 tentang Master Plan TI Periode 2022-2024</li>
-                        <li class="peraturan-item">Perdir No. 29 Tahun 2024 tentang Pedoman Penyelenggaran Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 55/SE/2020 tentang Petunjuk Pelaksanaan Penyusunan dan Pemeliharaan MPTI</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">1.2 Petunjuk Pelaksanaan Pengelolaan Business Relationship</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 29 Tahun 2024 tentang Pedoman Penyelenggaran Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">1.3 Petunjuk Pelaksanaan Demand Management</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 29 Tahun 2024 tentang Pedoman Penyelenggaran Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">1.4 Petunjuk Pelaksanaan Pengelolaan Kualitas</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 122 Tahun 2020 tentang Pedoman Pengelolaan Kualitas Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 29 Tahun 2024 tentang Pedoman Penyelenggaran Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 64/SE/2020 tentang Petunjuk Pelaksanaan Pengelolaan Mutu</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">1.5 Petunjuk Pelaksanaan Pengelolaan IT Enterprise Architecture</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 29 Tahun 2024 tentang Pedoman Penyelenggaran Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 105/SE/2024 tentang Petunjuk Pelaksanaan Proses Penyusunan Dan Penetapan Standar Arsitektur Informasi</li>
-                        <li class="peraturan-item">SE No. 5/SE/2025 tentang Petunjuk Pelaksanaan Pengelolaan Enterprise Architecture TI</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">1.6 Petunjuk Pelaksanaan Pengelolaan Proof of Concept</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">SE No. 236/SE/2022 tentang Petunjuk Pelaksanaan Kajian Teknologi (POC)</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">1.7 Petunjuk Pelaksanaan Pengelolaan Katalog Layanan TI</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 29 Tahun 2024 tentang Pedoman Penyelenggaran Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 36/SE/2020 tentang Petunjuk Pelaksanaan Pembuatan IT Service Portfolio</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">1.8 Petunjuk Pelaksanaan Pengelolaan Tingkat Layanan</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 4 Tahun 2025 tentang Pedoman Service Level Agreement Penyelesaian Permasalahan Operasional</li>
-                        <li class="peraturan-item">SE No. 44/SE/2020 tentang Petunjuk Pelaksanaan Pembuatan SLA-OLA</li>
-                        <li class="peraturan-item">SE No. 113/SE/2020 tentang Petunjuk Pelaksanaan Service Desk Agen dan Non-Agen</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Service Level Management</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="kebijakan-block">
-            <div class="kebijakan-header">2. Pedoman Pengembangan TI</div>
-            <div class="kebijakan-content">
-                <div class="juklak-block">
-                    <div class="juklak-title">2.1 Petunjuk Pelaksanaan Business Requirement</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 29 Tahun 2024 tentang Pedoman Penyelenggaran Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 154/SE/2024 tentang Petunjuk Pelaksanaan Pengajuan Improvement Aplikasi</li>
-                        <li class="peraturan-item">SE No. 235/SE/2024 tentang Petunjuk Pelaksanaan Penyusunan Dokumen Kebutuhan Bisnis (BRD)</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">2.2 Petunjuk Pelaksanaan Perancangan Sistem Aplikasi</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 101/SE/2020 tentang Petunjuk Pelaksanaan High Level Design &amp; Low Level Design</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-23 Kebijakan dan Prosedur Akuisisi, Pengembangan dan Pemeliharaan Sistem</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">2.3 Petunjuk Pelaksanaan Development</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 68/SE/2020 tentang Petunjuk Pelaksanaan Application Control dalam Pengembangan TI</li>
-                        <li class="peraturan-item">SE No. 97/SE/2020 tentang Petunjuk Pelaksanaan Perubahan Minor Pengembangan Aplikasi</li>
-                        <li class="peraturan-item">SE No. 101/SE/2020 tentang Petunjuk Pelaksanaan High Level Design &amp; Low Level Design</li>
-                        <li class="peraturan-item">SE No. 102/SE/2021 tentang Petunjuk Pelaksanaan Hardening Aplikasi</li>
-                        <li class="peraturan-item">SE No. 235/SE/2024 tentang Petunjuk Pelaksanaan Penyusunan Dokumen Kebutuhan Bisnis (BRD)</li>
-                        <li class="peraturan-item">SE No. 183/SE/2024 tentang Petunjuk Pelaksanaan Pembuatan Petunjuk Teknis Aplikasi / User Manual dan Materi Pelatihan</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-23 Kebijakan dan Prosedur Akuisisi, Pengembangan dan Pemeliharaan Sistem</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Secure Coding</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan SDLC</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">2.4 Petunjuk Pelaksanaan Pengujian Sistem Aplikasi TI</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 54/SE/2020 tentang Petunjuk Pelaksanaan Test Operasional Aplikasi</li>
-                        <li class="peraturan-item">SE No. 260/SE/2021 tentang Petunjuk Pelaksanaan Proses Pengujian Hasil Pengembangan</li>
-                        <li class="peraturan-item">SE No. 102/SE/2021 tentang Petunjuk Pelaksanaan Hardening Aplikasi</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Pengujian Sistem Aplikasi TI</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">2.5 Petunjuk Pelaksanaan Cache Management</div>
-                    <div class="no-peraturan">Tidak ada peraturan saat ini yang terpetakan</div>
-                </div>
-            </div>
-        </div>
-        <div class="kebijakan-block">
-            <div class="kebijakan-header">3. Pedoman Transition</div>
-            <div class="kebijakan-content">
-                <div class="juklak-block">
-                    <div class="juklak-title">3.1 Petunjuk Pelaksanaan Change Management Infrastruktur TI</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-15 tentang Kebijakan dan Prosedur Pengelolaan Perubahan</li>
-                        <li class="peraturan-item">Draft Juklak Standard Change Management v0.3 2025</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Change Management Aplikasi</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Change Management Infrastruktur TI</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">3.2 Petunjuk Pelaksanaan Change, Release &amp; Rollback Management Aplikasi</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 133/SE/2024 tentang Petunjuk Pelaksanaan Release &amp; Rollback Management</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Release &amp; Rollback Management</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">3.3 Petunjuk Pelaksanaan Pengelolaan Konfigurasi</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 64 Tahun 2024 tentang Pedoman Sistem Manajemen Keamanan Informasi (SMKI)</li>
-                        <li class="peraturan-item">SE No. 122/SE/2020 tentang Petunjuk Pelaksanaan Security Configuration Management &amp; Hardening</li>
-                        <li class="peraturan-item">SE No. 69/SE/2022 tentang Petunjuk Pelaksanaan Pengelolaan Configuration Management Database Tools</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-14 Kebijakan dan Prosedur Manajemen Konfigurasi</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Configuration Management</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">3.4 Petunjuk Pelaksanaan Pengelolaan Exception</div>
-                    <div class="no-peraturan">Tidak ada peraturan saat ini yang terpetakan</div>
-                </div>
-            </div>
-        </div>
-        <div class="kebijakan-block">
-            <div class="kebijakan-header">4. Pedoman Operasional TI</div>
-            <div class="kebijakan-content">
-                <div class="juklak-block">
-                    <div class="juklak-title">4.1 Petunjuk Pelaksanaan Monitoring dan Pengelolaan Event</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 64 Tahun 2024 tentang Pedoman Sistem Manajemen Keamanan Informasi (SMKI)</li>
-                        <li class="peraturan-item">SE No. 112/SE/2021 tentang Petunjuk Pelaksanaan Monitoring Sistem Aplikasi</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 128/SE/2023 tentang Petunjuk Pelaksanaan IT Operations Center</li>
-                        <li class="peraturan-item">SE No. 153/SE/2025 tentang Petunjuk Pelaksanaan Pelaporan Disruption Kategori Insiden, Waspada, dan Bencana</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-12 Kebijakan dan Prosedur Log dan Monitoring</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Event Management</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">4.2 Petunjuk Pelaksanaan Manajemen Request Layanan TI</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Peraturan Direktur No. 17 Tahun 2025 tentang Pedoman Penyelesaian Pengaduan Nasabah dan Pengelolaan Layanan Helpdesk, Customer Service Digital (CS Digital) dan Team Verifikator</li>
-                        <li class="peraturan-item">SE No. 113/SE/2020 tentang Petunjuk Pelaksanaan Service Desk Agen dan Non-Agen</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">4.3 Petunjuk Pelaksanaan Manajemen Insiden</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">Peraturan Direktur No. 17 Tahun 2025 tentang Pedoman Penyelesaian Pengaduan Nasabah dan Pengelolaan Layanan Helpdesk, Customer Service Digital (CS Digital) dan Team Verifikator</li>
-                        <li class="peraturan-item">SE No. 113/SE/2020 tentang Petunjuk Pelaksanaan Service Desk Agen dan Non-Agen</li>
-                        <li class="peraturan-item">SE No. 153/SE/2025 tentang Petunjuk Pelaksanaan Pelaporan Disruption Kategori Insiden, Waspada, dan Bencana</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Incident Management</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">4.4 Petunjuk Pelaksanaan Perbaikan Sistem Aplikasi TI</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">SE No. 184/SE/2022 tentang Petunjuk Pelaksanaan Penanganan Problem Manajemen pada Aplikasi Dengan Status Done</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">4.5 Petunjuk Pelaksanaan Perbaikan Infrastruktur TI</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">SE No. 184/SE/2022 tentang Petunjuk Pelaksanaan Penanganan Problem Manajemen pada Aplikasi Dengan Status Done</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-11 2024 tentang Kebijakan dan Prosedur Pengelolaan Aset</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Incident Management</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">4.6 Petunjuk Pelaksanaan Manajemen Problem</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 184/SE/2022 tentang Petunjuk Pelaksanaan Penanganan Problem Management Dengan Status Done</li>
-                        <li class="peraturan-item">SE No. 255/SE/2024 tentang Petunjuk Pelaksanaan Problem Management</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Problem Management</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">4.7 Petunjuk Pelaksanaan Patch Management</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 96/SE/2020 tentang Petunjuk Pelaksanaan Patch Management</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">4.8 Petunjuk Pelaksanaan Operasional dan Pemeliharaan Infrastruktur</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 232/SE/2021 tentang Petunjuk Pelaksanaan Pengelolaan Bash Script Infrastruktur TI</li>
-                        <li class="peraturan-item">SE No. 236/SE/2021 tentang Petunjuk Pelaksanaan Network Infrastruktur TI</li>
-                        <li class="peraturan-item">SE No. 128/SE/2023 tentang Petunjuk Pelaksanaan IT Operations Center</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-17 Kebijakan dan Prosedur Keamanan Operasional</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Operasional dan Pemeliharaan Infrastruktur</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">4.9 Petunjuk Pelaksanaan Pengelolaan Data Center</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 59 Tahun 2024 tentang Pedoman Operasional Data Center</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 15/SE/2025 tentang Petunjuk Pelaksanaan Pengelolaan Data Center</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-10 Kebijakan dan Prosedur Keamanan Fisik dan Lingkungan</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Pengelolaan Data Center</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">4.10 Petunjuk Pelaksanaan Pengelolaan Aset TI</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 29 Tahun 2024 tentang Pedoman Penyelenggaran Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 64 Tahun 2024 tentang Pedoman Sistem Manajemen Keamanan Informasi (SMKI)</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-11 Kebijakan dan Prosedur Pengelolaan Aset</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Pengelolaan Aset TI</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">4.11 Petunjuk Pelaksanaan Pengelolaan API</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">SE No. 40/SE/2025 tentang Petunjuk Pelaksanaan Tata Kelola API Management</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">4.12 Petunjuk Pelaksanaan Pengelolaan End Point (Pengembalian Perangkat Endpoint User)</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 51 Tahun 2023 tentang Pedoman Standarisasi Pengelolaan Perangkat Endpoint Perusahaan</li>
-                        <li class="peraturan-item">SE No. 168/SE/2023 tentang Petunjuk Pelaksanaan Standarisasi Sarana Kerja Pada Perangkat Endpoint PT Pegadaian</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Pengelolaan Endpoint</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">4.13 Petunjuk Pelaksanaan Pengelolaan Cloud</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 29 Tahun 2024 tentang Pedoman Penyelenggaran Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 64 Tahun 2024 tentang Pedoman Sistem Manajemen Keamanan Informasi (SMKI)</li>
-                        <li class="peraturan-item">SE No. 182/SE/2024 tentang Petunjuk Pelaksanaan Pengelolaan Komputasi Awan (Cloud Computing)</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Pengelolaan Cloud</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">4.14 Petunjuk Pelaksanaan Perencanaan Ketersediaan dan Kapasitas</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 134/SE/2024 tentang Petunjuk Pelaksanaan Capacity Planning</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-16 Kebijakan dan Prosedur Pengelolaan Kapasitas</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="kebijakan-block">
-            <div class="kebijakan-header">5. Pedoman Manajemen Keamanan</div>
-            <div class="kebijakan-content">
-                <div class="juklak-block">
-                    <div class="juklak-title">5.1 Petunjuk Pelaksanaan Pengelolaan Hak Akses Pengguna</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 78 Tahun 2019 tentang Pengelolaan Password Untuk User ID Level Super User</li>
-                        <li class="peraturan-item">Perdir No. 86 Tahun 2021 tentang Pedoman Penggunaan One Time Password Pada Pegadaian Application Support System Integrated Online (Passion) Konvensional</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 64 Tahun 2024 tentang Pedoman Sistem Manajemen Keamanan Informasi (SMKI)</li>
-                        <li class="peraturan-item">SE No. 103/SE/2021 tentang Petunjuk Pelaksanaan Pengelolaan User ID Aplikasi Core Perusahaan</li>
-                        <li class="peraturan-item">SE No. 135/SE/2024 tentang Petunjuk Pelaksanaan Pengelolaan Akun Istimewa (Privileged Account)</li>
-                        <li class="peraturan-item">SE No. 136/SE/2024 tentang Petunjuk Pelaksanaan Tinjauan Hak Akses Pengguna</li>
-                        <li class="peraturan-item">SE No. 137/SE/2024 tentang Petunjuk Pelaksanaan Pengelolaan Hak Akses Pengguna</li>
-                        <li class="peraturan-item">SE No. 138/SE/2024 tentang Petunjuk Pelaksanaan Pengelolaan Password</li>
-                        <li class="peraturan-item">SE No. 139/SE/2024 tentang Petunjuk Pelaksanaan Pengelolaan Identitas Tunggal (Single Identity)</li>
-                        <li class="peraturan-item">SE No. 140/SE/2024 tentang Petunjuk Pelaksanaan Pengelolaan Akses Jaringan Jarak Jauh</li>
-                        <li class="peraturan-item">SE No. 141/SE/2024 tentang Petunjuk Pelaksanaan Pendaftaran dan Penghapusan Hak Akses Pengguna</li>
-                        <li class="peraturan-item">SE No. 142/SE/2024 tentang Petunjuk Pelaksanaan Penyediaan Hak Akses Pengguna</li>
-                        <li class="peraturan-item">SE No. 153/SE/2024 tentang Petunjuk Pelaksanaan Pengelolaan User ID Aplikasi Non-Core Perusahaan</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-13 Kebijakan dan Prosedur Pengendalian Akses dan Kriptografi</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Identity &amp; Access Management</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">5.2 Petunjuk Pelaksanaan Kriptografi</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 64 Tahun 2024 tentang Pedoman Sistem Manajemen Keamanan Informasi (SMKI)</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-13 Kebijakan dan Prosedur Pengendalian Akses dan Kriptografi</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">5.3 Petunjuk Pelaksanaan Pengujian dan Pengamanan Pengembangan Aplikasi</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 49 Tahun 2022 Tentang Pedoman Operasional Security Operation Center (SOC)</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 102/SE/2021 tentang Petunjuk Pelaksanaan Hardening Aplikasi</li>
-                        <li class="peraturan-item">SE No. 122/SE/2020 tentang Petunjuk Pelaksanaan Security Configuration Management &amp; Hardening</li>
-                        <li class="peraturan-item">SE No. 161/SE/2024 tentang Petunjuk Pelaksanaan Pengelolaan Security Operation Center</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-23 Kebijakan dan Prosedur Akuisisi, Pengembangan dan Pemeliharaan Sistem</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Vulnerability Assessment dan Penetration Testing</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">5.4 Petunjuk Pelaksanaan Pengelolaan Insiden Pengamanan Informasi</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 49 Tahun 2022 tentang Pedoman Security Operation Center (SOC)</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 161/SE/2024 tentang Petunjuk Pelaksanaan Pengelolaan Security Operation Center</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="kebijakan-block">
-            <div class="kebijakan-header">6. Pedoman Manajemen Kontinuitas TI</div>
-            <div class="kebijakan-content">
-                <div class="juklak-block">
-                    <div class="juklak-title">6.1 Petunjuk Pelaksanaan Pengelolaan Kontinuitas TI</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 72 Tahun 2023 tentang Pedoman Business Continuity Management System (BCMS)</li>
-                        <li class="peraturan-item">SE No. 153/SE/2025 tentang Petunjuk Pelaksanaan Pelaporan Disruption Kategori Insiden, Waspada, dan Bencana</li>
-                        <li class="peraturan-item">Perdir No. 64 Tahun 2024 tentang Pedoman Sistem Manajemen Keamanan Informasi (SMKI)</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-24 Kebijakan dan Prosedur Aspek Keamanan Informasi dari Manajemen Kontinuitas Bisnis</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Business Continuity Plan TI</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">6.2 Petunjuk Pelaksanaan Pengujian DRP TI</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 64 Tahun 2024 tentang Pedoman Sistem Manajemen Keamanan Informasi (SMKI)</li>
-                        <li class="peraturan-item">SE No. 106/SE/2024 tentang Petunjuk Pelaksanaan Disaster Recovery Plan</li>
-                        <li class="peraturan-item">SE No. 127/SE/2023 tentang Petunjuk Pelaksanaan Cyber Security Tabletop Exercise</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-24 Kebijakan dan Prosedur Aspek Keamanan Informasi dari Manajemen Kontinuitas Bisnis</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Pengujian DRP TI</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="kebijakan-block">
-            <div class="kebijakan-header">7. Pedoman Manajemen Data</div>
-            <div class="kebijakan-content">
-                <div class="juklak-block">
-                    <div class="juklak-title">7.1 Petunjuk Pelaksanaan Pengelolaan Data Architecture</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">SE No. 80/SE/2024 tentang Petunjuk Pelaksanaan Data Dictionary Aplikasi Pegadaian</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">7.2 Petunjuk Pelaksanaan Pengelolaan Data Model</div>
-                    <div class="no-peraturan">Tidak ada peraturan saat ini yang terpetakan</div>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">7.3 Petunjuk Pelaksanaan Pengelolaan Database</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">SE No. 62/SE/2024 tentang Petunjuk Pelaksanaan Archiving Data (Data Retensi)</li>
-                        <li class="peraturan-item">SE No. 237/SE/2024 tentang Petunjuk Pelaksanaan Pengelolaan Database Perusahaan</li>
-                        <li class="peraturan-item">SE No. 243/SE/2024 tentang Petunjuk Pelaksanaan Data Migrasi atau Data Konversi Perusahaan</li>
-                        <li class="peraturan-item">SE No. 41/SE/2025 tentang Petunjuk Pelaksanaan Penunjukan Data Owner dan Data Steward</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-17 Kebijakan dan Prosedur Keamanan Operasional</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Database Management</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">7.4 Petunjuk Pelaksanaan Pengelolaan Data Security</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 64 Tahun 2024 tentang Pedoman Sistem Manajemen Keamanan Informasi (SMKI)</li>
-                        <li class="peraturan-item">SE No. 65/SE/2025 tentang Petunjuk Pelaksanaan Pengelolaan Data Perusahaan</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">7.7 Petunjuk Pelaksanaan Pengelolaan Metadata Management</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">SE No. 65/SE/2025 tentang Petunjuk Pelaksanaan Pengelolaan Data Perusahaan</li>
-                        <li class="peraturan-item">SE No. 80/SE/2024 tentang Petunjuk Pelaksanaan Data Dictionary Aplikasi Pegadaian</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">7.6 Petunjuk Pelaksanaan Pengelolaan Data Warehouse, Data Lake, &amp; Business Intelligence</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">SE No. 65/SE/2025 tentang Petunjuk Pelaksanaan Pengelolaan Data Perusahaan</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">7.8 Petunjuk Pelaksanaan Pengelolaan Data Quality</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Tunggalisasi Data Nasabah</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">7.5 Petunjuk Pelaksanaan Pengelolaan Master Data Management</div>
-                    <div class="no-peraturan">Tidak ada peraturan saat ini yang terpetakan</div>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">Tanpa Petunjuk Pelaksanaan</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">SE No. 203/SE/2023 tentang Petunjuk Pelaksanaan Data Governance</li>
-                        <li class="peraturan-item">SE No. 41/SE/2025 tentang Petunjuk Pelaksanaan Penunjukan Data Owner dan Data Steward</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="kebijakan-block">
-            <div class="kebijakan-header">8. Pedoman AIMS</div>
-            <div class="kebijakan-content">
-                <div class="juklak-block">
-                    <div class="juklak-title">8.1 Petunjuk Pelaksanaan Sistem Manajemen Kecerdasan Buatan (AIMS)</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Penggunaan dan Perangkat Kecerdasan Buatan</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="kebijakan-block">
-            <div class="kebijakan-header">9. Pedoman Continual Improvement</div>
-            <div class="kebijakan-content">
-                <div class="juklak-block">
-                    <div class="juklak-title">9.1 Petunjuk Pelaksanaan Evaluasi Kepatuhan TI</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">Tanpa Petunjuk Pelaksanaan</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">PGD-SMKI.PRO-22 Kebijakan dan Prosedur Kepatuhan Keamanan Informasi</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">9.2 Petunjuk Pelaksanaan Tinjauan Manajemen</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 29 Tahun 2024 tentang Pedoman Penyelenggaran Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-07 Kebijakan dan Prosedur Tinjauan Manajemen</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">9.3 Petunjuk Pelaksanaan Perbaikan Berkelanjutan TI</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 129/SE/2023 tentang Petunjuk Pelaksanaan Continuous Improvement</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-08 Kebijakan dan Prosedur Penanganan Ketidaksesuaian dan Peningkatan Berkelanjutan</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="kebijakan-block">
-            <div class="kebijakan-header">10. Pedoman IT Organize</div>
-            <div class="kebijakan-content">
-                <div class="juklak-block">
-                    <div class="juklak-title">10.1 Petunjuk Pelaksanaan Manajemen Proyek TI</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 29 Tahun 2024 tentang Pedoman Penyelenggaran Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">Perdir No. 50 tahun 2024 tentang Pedoman Kerja Manajemen Proyek, Program, dan Portfolio</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Sistem Kerja Manajemen Program dan Project</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">10.2 Petunjuk Pelaksanaan Post Implementation Review</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 50 tahun 2024 tentang Pedoman Kerja Manajemen Proyek, Program, dan Portfolio Direksi</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">10.3 Petunjuk Pelaksanaan Pengadaan Barang dan Jasa TI</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 41 Tahun 2024 tentang Pedoman Pengadaan Barang dan Jasa</li>
-                        <li class="peraturan-item">Perdir No. 64 Tahun 2024 tentang Pedoman Sistem Manajemen Keamanan Informasi (SMKI)</li>
-                        <li class="peraturan-item">Perdir No. 106 Tahun 2024 tentang Pedoman Penyelenggaraan Teknologi Informasi</li>
-                        <li class="peraturan-item">SE No. 50/SE/2020 tentang Petunjuk Pelaksanaan Pemilihan Vendor Pengadaan Barang dan/atau Jasa</li>
-                        <li class="peraturan-item">SE No. 260/SE/2024 tentang Petunjuk Pelaksanaan Pengadaan Barang Dan Jasa TI</li>
-                        <li class="peraturan-item">SE No. 305/SE/2024 tentang Petunjuk Pelaksanaan Pedoman Pengadaan Barang dan Jasa</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-20 Kebijakan dan Prosedur Pengelolaan Pemasok</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">10.4 Petunjuk Pelaksanaan Pengelolaan Knowledge Management System</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">SE No. 213/SE/2022 tentang Petunjuk Pelaksanaan Standarisasi Pengisian Lesson Learned Management</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Pengelolaan Security Operation Center</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">10.5 Petunjuk Pelaksanaan Pengendalian Dokumentasi Informasi</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">Perdir No. 82 Tahun 2023 tentang Pedoman Pembentukan Kebijakan</li>
-                        <li class="peraturan-item">SE No. 170/SE/2021 tentang Petunjuk Pelaksanaan Pengendalian Dokumen Sistem Manajemen Layanan TI</li>
-                        <li class="peraturan-item">PGD-SMKI.PRO-04 Kebijakan dan Prosedur Pengendalian Dokumen</li>
-                    </ul>
-                </div>
-                <div class="juklak-block">
-                    <div class="juklak-title">10.6 Petunjuk Pelaksanaan Pengelolaan Petunjuk Teknis</div>
-                    <ul class="peraturan-list">
-                        <li class="peraturan-item">SE No. 183/SE/2024 tentang Petunjuk Pelaksanaan Pembuatan Petunjuk Teknis Aplikasi / User Manual dan Materi Pelatihan</li>
-                        <li class="peraturan-item">Draft Petunjuk Pelaksanaan Standar Operasi Prosedur Development Life Cycle</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+
+<div class="container">
+    <center><h2 id="docTitle" style="color: #006633;">Loading Title...</h2></center>
+
+    <div class="intro-card" id="docIntro">
+        Loading description...
     </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 Cari Pedoman atau Juklak di sini..." onkeyup="filterData()">
+    </div>
+
+    <div class="banner" id="docBanner">Loading Banner...</div>
+
+    <div class="grid" id="policyGrid">
+        <!-- Kartu-kartu akan dirender secara otomatis di sini dari JSON -->
+    </div>
+</div>
+
+<script>
+// Memanggil data dari file Arsitektur.json
+fetch('Arsitektur.json')
+    .then(response => response.json())
+    .then(data => {
+        // Render Text Header
+        document.getElementById('docTitle').innerText = data.title;
+        document.getElementById('docIntro').innerText = data.introduction;
+        document.getElementById('docBanner').innerText = data.banner;
+
+        // Render Grid Categories
+        const grid = document.getElementById('policyGrid');
+        grid.innerHTML = ''; // Kosongkan container
+
+        data.categories.forEach(cat => {
+            let colDiv = document.createElement('div');
+            colDiv.className = `col ${cat.color}`;
+
+            let headerLink = document.createElement('a');
+            headerLink.className = 'h';
+            headerLink.target = '_blank';
+            headerLink.href = cat.url;
+            headerLink.innerText = cat.title;
+            colDiv.appendChild(headerLink);
+
+            cat.items.forEach(item => {
+                let cardLink = document.createElement('a');
+                cardLink.className = 'card';
+                cardLink.target = '_blank';
+                cardLink.href = item.url;
+                cardLink.innerHTML = `<div class="small">${item.code}</div>${item.title}`;
+                colDiv.appendChild(cardLink);
+            });
+
+            grid.appendChild(colDiv);
+        });
+    })
+    .catch(error => console.error('Gagal memuat data JSON:', error));
+
+// Fungsi Pencarian
+function filterData() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let columns = document.querySelectorAll('.col');
+
+    columns.forEach(function(col) {
+        let header = col.querySelector('.h');
+        let headerText = header.textContent.toLowerCase();
+        
+        let cards = col.querySelectorAll('.card');
+        let matchFoundInCol = false;
+
+        if (headerText.includes(input)) {
+            matchFoundInCol = true;
+            cards.forEach(function(card) {
+                card.style.display = 'block';
+            });
+        } else {
+            cards.forEach(function(card) {
+                let cardText = card.textContent.toLowerCase();
+                if (cardText.includes(input)) {
+                    card.style.display = 'block';
+                    matchFoundInCol = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        if (matchFoundInCol) {
+            col.style.display = 'block';
+        } else {
+            col.style.display = 'none';
+        }
+    });
+}
+</script>
+
 </body>
 </html>
