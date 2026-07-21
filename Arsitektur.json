@@ -1,1 +1,385 @@
-
+{
+  "title": "IT Governance Sites - PT Pegadaian",
+  "introduction": "Arsitektur Pedoman dan Petunjuk Pelaksanaan Teknologi Informasi disusun secara hierarkis sebagai acuan pengelolaan TI yang terstandarisasi dan selaras dengan tata kelola perusahaan. Struktur ini dikembangkan dengan mempertimbangkan best practice, regulasi, SOTK, serta peran dan tanggung jawab yang ditetapkan dalam RASCI.",
+  "banner": "Arsitektur Kebijakan Umum Teknologi Informasi",
+  "categories": [
+    {
+      "id": 1,
+      "title": "1. PP Strategi TI",
+      "url": "https://docs.google.com/document/d/1gSnnPO7-p-eUZarICL82yRUdL8J5M2IT/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true",
+      "color": "green",
+      "items": [
+        {
+          "code": "1.1",
+          "title": "Penyusunan RSTI",
+          "url": "https://docs.google.com/document/d/1JIYnmucErOcZqXJaHMU_wXGOopL_dHdk/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        },
+        {
+          "code": "1.2",
+          "title": "Pengelolaan Business Relationship",
+          "url": "https://docs.google.com/document/d/1WcxPG7ikFzxuGgDSI7g5sCPnieHeZxUq/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        },
+        {
+          "code": "1.3",
+          "title": "Demand Management",
+          "url": "https://docs.google.com/document/d/1AOij0ZsyNA1O5Rx6lABIqTPJXRodVCiw/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        },
+        {
+          "code": "1.4",
+          "title": "Pengelolaan Kualitas",
+          "url": "https://docs.google.com/document/d/1wNjUcO3t6P1sJxgCaWjtszfsSF915tYt/edit"
+        },
+        {
+          "code": "1.5",
+          "title": "Pengelolaan IT Enterprise Architecture",
+          "url": "https://docs.google.com/document/d/159DGYNy84Lhxr-fVfM-HJ7nCFmVOVo4F/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        },
+        {
+          "code": "1.6",
+          "title": "Pengelolaan Proof of Concept",
+          "url": "https://docs.google.com/document/d/1nXvY_tEGMisNccywmseRW5FMsZ8c6gK0/edit?usp=drive_link&ouid=101013482114674922123&rtpof=true&sd=true"
+        },
+        {
+          "code": "1.7",
+          "title": "Pengelolaan Katalog Layanan TI",
+          "url": "https://docs.google.com/document/d/1T-oLwypvLE67oTfMVtRQLhDrx5dfwOkE/edit"
+        },
+        {
+          "code": "1.8",
+          "title": "Pengelolaan Tingkat Layanan TI",
+          "url": "https://docs.google.com/document/d/1Bz4n2Q7WG73qw6vBEL0wqy7OssZK3WpD/edit"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "2. PP Development",
+      "url": "https://docs.google.com/document/d/1a5q8UqyZu1zhhAsTo3l1ob0V8slhDkFk/edit",
+      "color": "orange",
+      "items": [
+        {
+          "code": "2.1",
+          "title": "Business Requirement",
+          "url": "https://docs.google.com/document/d/1OZ-uvCg0nLPjK_qs9TWaAgTGCkse7xHZ/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        },
+        {
+          "code": "2.2",
+          "title": "Perancangan Sistem Aplikasi",
+          "url": "https://docs.google.com/document/d/1c8jGna5lV9NJesisn6mc4YNiRHU3wnpC/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        },
+        {
+          "code": "2.3",
+          "title": "Development",
+          "url": "https://docs.google.com/document/d/1LxOFkVNmNc7xnMATfiP4g09vJWI7ByzI/edit"
+        },
+        {
+          "code": "2.4",
+          "title": "Pengujian Sistem Aplikasi TI",
+          "url": "url?id=17"
+        },
+        {
+          "code": "2.5",
+          "title": "Cache Management",
+          "url": "https://docs.google.com/document/d/16hd7ucVcFBj5C7uvrdyWYryVu4ebLAB5/edit"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "3. PP Transition",
+      "url": "https://docs.google.com/document/d/1jso3RfMRb6WlARjvXKk4EAl6sbD_tsJo/edit?rtpof=true&sd=true",
+      "color": "blue",
+      "items": [
+        {
+          "code": "3.1",
+          "title": "Change Management Infrastruktur TI",
+          "url": "url?id=20"
+        },
+        {
+          "code": "3.2",
+          "title": "Change, Release & Rollback Aplikasi",
+          "url": "https://docs.google.com/document/d/1HeMGUSWmKdONi3pOd9zXqvmioyRgePgJ/edit"
+        },
+        {
+          "code": "3.3",
+          "title": "Pengelolaan Konfigurasi",
+          "url": "url?id=22"
+        },
+        {
+          "code": "3.4",
+          "title": "Pengelolaan Exception",
+          "url": "https://docs.google.com/document/d/1c79Pmy5Uw7ECPMYL2BcTZU5dGQ4Hvqvo/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "4. PP Operasional TI",
+      "url": "https://www.gstatic.com/atari/embeds/05acf2f48052137958a41565358fb972/intermediate-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.9vdPKhB0RUg.O%2Fd%3D1%2Frs%3DAHpOoo97anj7zZ432JcN58tqJJp_A6WeOw%2Fm%3D__features__&r=3553330544",
+      "color": "purple",
+      "items": [
+        {
+          "code": "4.1",
+          "title": "Monitoring dan Pengelolaan Event",
+          "url": "https://docs.google.com/document/d/19OnqjhEPFsV8fJ6UQXnlMx9PYsNdoeh0/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        },
+        {
+          "code": "4.2",
+          "title": "Manajemen Request Layanan TI",
+          "url": "https://docs.google.com/document/d/1rB9BiC8glqQdRI2716FvMgiI0JzXvi2f/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        },
+        {
+          "code": "4.3",
+          "title": "Manajemen Insiden",
+          "url": "url?id=27"
+        },
+        {
+          "code": "4.4",
+          "title": "Perbaikan Sistem Aplikasi TI",
+          "url": "https://docs.google.com/document/d/1sZ1_vw3YToUGYROK1dU42KY7ho3onnvT/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        },
+        {
+          "code": "4.5",
+          "title": "Perbaikan Infrastruktur TI",
+          "url": "url?id=29"
+        },
+        {
+          "code": "4.6",
+          "title": "Manajemen Problem",
+          "url": "https://docs.google.com/document/d/1dp_QJKL7_FAfHjALdw1wQ5quU2scFJqQ/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        },
+        {
+          "code": "4.7",
+          "title": "Patch Management",
+          "url": "url?id=31"
+        },
+        {
+          "code": "4.8",
+          "title": "Operasional & Pemeliharaan Infrastruktur",
+          "url": "https://docs.google.com/document/d/1RI7JWkwBeao_9_VtQG7uCLVD5zz1wzbk/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        },
+        {
+          "code": "4.9",
+          "title": "Pengelolaan Data Center",
+          "url": "https://408423915-atari-embeds.googleusercontent.com/embeds/1eea06de280c5ab9b261c0869a310ca0/inner-frame-minified.html?jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.en.9vdPKhB0RUg.O%2Fd%3D1%2Frs%3DAHpOoo97anj7zZ432JcN58tqJJp_A6WeOw%2Fm%3D__features__3"
+        },
+        {
+          "code": "4.10",
+          "title": "Pengelolaan Aset TI",
+          "url": "https://docs.google.com/document/u/0/d/1NowhUywq2S4NFYDN91k2BDIF6y2iDIws/edit?fromCopy=true&ct=2"
+        },
+        {
+          "code": "4.11",
+          "title": "Pengelolaan API",
+          "url": "https://docs.google.com/document/d/1J0OUrpp6NScqJjlVJSZcL995UrppbQV1/edit"
+        },
+        {
+          "code": "4.12",
+          "title": "Pengelolaan Endpoint",
+          "url": "https://docs.google.com/document/d/1wS9Oj2q5bgn0eOQRaiekeNugZT3Mya72/edit"
+        },
+        {
+          "code": "4.13",
+          "title": "Pengelolaan Cloud",
+          "url": "https://docs.google.com/document/d/1L4Q3sy-RtdPXmKzP5apPAU-HZLFlf64U/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        },
+        {
+          "code": "4.14",
+          "title": "Pengelolaan Ketersediaan & Kapasitas",
+          "url": "https://docs.google.com/document/d/1NyFk2p_wryxNwrgYQuimuQhOsc0sTGcF/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "5. PP Manajemen Keamanan",
+      "url": "url?id=39",
+      "color": "red",
+      "items": [
+        {
+          "code": "5.1",
+          "title": "Pengelolaan Hak Akses Pengguna",
+          "url": "https://docs.google.com/document/d/1fj4eXc4RoC3LT2Hcu-5DTeaEItoFSZKX/edit"
+        },
+        {
+          "code": "5.2",
+          "title": "Kriptografi",
+          "url": "https://docs.google.com/document/d/1QpSGivqmul0uk-OUFcyuaQMbShd9qsP5sVWrNyv9hZk/edit?usp=drive_link"
+        },
+        {
+          "code": "5.3",
+          "title": "Pengujian & Pengamanan Aplikasi",
+          "url": "https://docs.google.com/document/d/1e2aVV2IDaqBJfKOpJSuNt6lnHHSNibpp/edit#heading=h.9oia958wm237"
+        },
+        {
+          "code": "5.4",
+          "title": "Manajemen Insiden Pengamanan",
+          "url": "https://docs.google.com/document/d/1FTiymw768OkakcO86wFpC1Skl4kHpjuZLf8WswraU9k/edit?usp=drive_link"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "6. PP Kontinuitas TI",
+      "url": "https://docs.google.com/document/d/1l3ocqfK9br-lsidjs3o_RBd8M0ow6czb/edit",
+      "color": "teal",
+      "items": [
+        {
+          "code": "6.1",
+          "title": "Pengelolaan Kontinuitas TI",
+          "url": "https://docs.google.com/document/d/1HPsvTG2B3scobZgSVNiTWeO2uLXHHfKC/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        },
+        {
+          "code": "6.2",
+          "title": "Pengujian DRP TI",
+          "url": "https://docs.google.com/document/d/1k4r9rL6nuaSONoUx5uCUB4Es-ylFOHX0/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "7. PP Manajemen Data",
+      "url": "https://docs.google.com/document/d/1XCZ6O41W0o5YOBmUbJx0VEXRkJKWzfuILmRSXDoX_Jw/edit?tab=t.0",
+      "color": "indigo",
+      "items": [
+        {
+          "code": "7.1",
+          "title": "Pengelolaan Data Architecture",
+          "url": "https://docs.google.com/document/d/19b01Z3NR0ebUTQHAw1XxhDGcXDCz7mR8/edit"
+        },
+        {
+          "code": "7.2",
+          "title": "Pengelolaan Data Model",
+          "url": "https://docs.google.com/document/d/1oIgBpfp4gwrym-iDiSYjE8DLWPTPUWREXdU0Q1lKHfo/edit?tab=t.0"
+        },
+        {
+          "code": "7.3",
+          "title": "Pengelolaan Database",
+          "url": "https://docs.google.com/document/d/1uHyRcgmZ8UHGN8yxA23-nnZDvkLe0_hE/edit?usp=drive_link&ouid=117657408844801594202&rtpof=true&sd=true"
+        },
+        {
+          "code": "7.4",
+          "title": "Pengelolaan Data Security",
+          "url": "https://docs.google.com/document/d/1_lLWcPwHOZcRYzEMLtR_FQ84BQe-P_2G/edit?usp=drive_link&ouid=117657408844801594202&rtpof=true&sd=true"
+        },
+        {
+          "code": "7.5",
+          "title": "Metadata Management",
+          "url": "https://docs.google.com/document/d/1Pc8jMnoOh5Ee4FYj6vyF8Yq69d7VRA6c/edit"
+        },
+        {
+          "code": "7.6",
+          "title": "Data Warehouse, Lake & BI",
+          "url": "url?id=53"
+        },
+        {
+          "code": "7.7",
+          "title": "Pengelolaan Data Quality",
+          "url": "https://docs.google.com/document/d/1UME5Jf5TcUHbeEXh4b4vbVdS75pzfNLv/edit?rtpof=true&sd=true"
+        },
+        {
+          "code": "7.8",
+          "title": "Master Data Management",
+          "url": "url?id=55"
+        },
+        {
+          "code": "7.9",
+          "title": "Data Integration & Interoperability",
+          "url": "https://docs.google.com/document/d/1JB2SPz9dTnRGygwdkA6SOr-KK-GzyPC1/edit?usp=drive_link&ouid=117657408844801594202&rtpof=true&sd=true"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "8. PP AIMS",
+      "url": "https://docs.google.com/document/d/1JIYnmucErOcZqXJaHMU_wXGOopL_dHdk/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true7",
+      "color": "pink",
+      "items": [
+        {
+          "code": "8.1",
+          "title": "Sistem Manajemen AI (AIMS)",
+          "url": "https://docs.google.com/document/d/1cLTJIj6uoRTP27_mhDWR_LWZMlJdBXf2/edit"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "9. PP Continual Improvement",
+      "url": "https://docs.google.com/document/d/1C1uS78Opi7zZ2Zo25PhFlLAOiw9Ze-3q/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true",
+      "color": "gray",
+      "items": [
+        {
+          "code": "9.1",
+          "title": "Evaluasi Kepatuhan TI",
+          "url": "url?id=60"
+        },
+        {
+          "code": "9.2",
+          "title": "Tinjauan Manajemen",
+          "url": "https://docs.google.com/document/d/17yM-jOUCd_Rr0jUCjdaxWgjez72tZkfo/edit"
+        },
+        {
+          "code": "9.3",
+          "title": "Perbaikan Berkelanjutan TI",
+          "url": "url?id=62"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "10. PP IT Organize",
+      "url": "https://docs.google.com/document/d/1N--ML_vgIZLglnqwR04RAdvHbmuj6scg/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true",
+      "color": "cyan",
+      "items": [
+        {
+          "code": "10.1",
+          "title": "Manajemen Proyek TI",
+          "url": "https://docs.google.com/document/d/1Y51LhSls1FICwUzwXRsP27YLwZTHKr2l/edit"
+        },
+        {
+          "code": "10.2",
+          "title": "Post Implementation Review",
+          "url": "https://docs.google.com/document/d/1A_YvoDy4iqpjsmWc7aAHMqZoVfjr8dy4/edit"
+        },
+        {
+          "code": "10.3",
+          "title": "Pengadaan Barang dan Jasa TI",
+          "url": "https://docs.google.com/document/d/1vJF8MN6Dvs7eYhobXyXdfU5yEKGq25b8/edit"
+        },
+        {
+          "code": "10.4",
+          "title": "Pengelolaan KMS",
+          "url": "https://docs.google.com/document/d/1xG6tNU5Zj7-gwM2FJma1ekT9QpwRZt5J/edit"
+        },
+        {
+          "code": "10.5",
+          "title": "Dokumentasi Informasi TI",
+          "url": "https://docs.google.com/document/d/1tRCsMOI5Tzp9-B_WEBzZrNVHQ3ERP_Ms/edit?usp=drive_link&ouid=103622359657006228845&rtpof=true&sd=true"
+        },
+        {
+          "code": "10.6",
+          "title": "Pengelolaan Petunjuk Teknis",
+          "url": "https://docs.google.com/document/d/1XF-5Ch66tYTRH9uw44b0BbvQGb5smAaa/edit?rtpof=true&sd=true"
+        },
+        {
+          "code": "10.7",
+          "title": "Kompetensi dan Screening SDM TI",
+          "url": "url?id=70"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Ops. Aplikasi TRING!",
+      "url": "https://drive.google.com/file/d/1mo5yp4T5o-XgpQX_3BeEsqROFpwpiPVY/view?usp=sharing",
+      "color": "brown",
+      "items": [
+        {
+          "code": "TRING!",
+          "title": "Implementasi Aplikasi TRING!",
+          "url": "url?id=72"
+        }
+      ]
+    }
+  ]
+}
